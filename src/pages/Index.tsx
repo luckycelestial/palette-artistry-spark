@@ -63,7 +63,8 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
-        <a href="#" className="font-serif text-2xl font-bold text-primary tracking-wide">
+        <a href="#" className="flex items-center gap-3 font-serif text-xl sm:text-2xl font-bold text-primary tracking-wide">
+          <img src="/logo.jpg" alt="The Palette Logo" className="h-10 w-auto object-contain" />
           The Palette
         </a>
         <nav className="hidden md:flex items-center gap-8">
@@ -406,7 +407,8 @@ function Contact() {
 function Footer() {
   return (
     <footer className="py-12 bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 lg:px-8 text-center">
+      <div className="container mx-auto px-4 lg:px-8 text-center flex flex-col items-center">
+        <img src="/logo.jpg" alt="The Palette Logo" className="h-14 w-auto object-contain mb-4 rounded-full border border-primary-foreground/20" />
         <p className="font-serif text-2xl font-bold">The Palette Designer Boutique</p>
         <p className="mt-2 text-sm text-primary-foreground/60">Made in Coimbatore.</p>
         <div className="mt-6 flex items-center justify-center gap-6 text-sm text-primary-foreground/50">
