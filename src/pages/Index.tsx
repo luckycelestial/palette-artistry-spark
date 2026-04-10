@@ -149,7 +149,7 @@ function About() {
           Crafted with Passion &amp; Precision
         </motion.h2>
         <motion.p variants={fadeUp} className="mt-4 text-muted-foreground max-w-xl mx-auto">
-          Women-owned and LGBTQ+ friendly — we celebrate every individual with couture that tells your unique story.
+          Women-owned — we celebrate every individual with couture that tells your unique story.
         </motion.p>
         <div className="mt-14 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {features.map((f) => (
@@ -434,7 +434,7 @@ function Footer() {
           <a href="#contact" className="hover:text-primary-foreground/80 transition-colors">Contact</a>
         </div>
         <div className="mt-6 flex items-center justify-center gap-1 text-primary-foreground/40 text-xs">
-          <Heart size={12} /> <span>Women-owned & LGBTQ+ friendly</span>
+          <Heart size={12} /> <span>Women-owned</span>
         </div>
       </div>
     </footer>
