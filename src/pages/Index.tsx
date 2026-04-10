@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Heart,
   Send,
+  Flower,
 } from "lucide-react";
 import heroBridal from "@/assets/hero-bridal.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -220,21 +221,42 @@ function Gallery() {
         <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-4xl font-bold text-primary text-center mb-16">
           Our Portfolio
         </motion.h2>
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-          {images.map((img, i) => (
+        <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:block sm:columns-2 lg:columns-3 sm:space-y-4">
+          {images.map((img, i) => {
+            const words = img.label.split(" ");
+            const category = words.pop();
+            const title = words.join(" ") || category;
+            
+            return (
             <motion.div
               key={i}
               variants={fadeUp}
-              className="break-inside-avoid group relative overflow-hidden rounded-sm cursor-pointer"
+              className="break-inside-avoid group cursor-pointer flex flex-col mb-0 sm:mb-4"
             >
-              <img src={img.src} alt={img.alt} loading="lazy" className="w-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/50 transition-colors duration-300 flex items-end">
-                <span className="p-4 text-primary-foreground font-serif text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
-                  {img.label}
-                </span>
+              {/* Image Container */}
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-sm aspect-[4/5] sm:aspect-auto">
+                <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                
+                {/* Desktop Hover State */}
+                <div className="hidden sm:flex absolute inset-0 bg-primary/0 group-hover:bg-primary/50 transition-colors duration-300 items-end">
+                  <span className="p-4 text-primary-foreground font-serif text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
+                    {img.label}
+                  </span>
+                </div>
+
+                {/* Mobile Center Icon Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center sm:hidden text-white/90 drop-shadow-md pointer-events-none">
+                  <Flower size={32} strokeWidth={2} />
+                </div>
+              </div>
+
+              {/* Mobile Labels (Below Image) */}
+              <div className="mt-3 flex flex-col items-center sm:hidden text-center">
+                <span className="font-bold text-sm text-foreground tracking-tight">{title}</span>
+                {title !== category && <span className="text-[11px] text-muted-foreground mt-0.5">{category}</span>}
               </div>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </Section>
@@ -344,7 +366,7 @@ function Contact() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-secondary flex-shrink-0" />
-                <a href="tel:+919150250227" className="text-sm text-muted-foreground hover:text-primary transition-colors">091502 50227</a>
+                <a href="tel:+919150250227" className="text-sm text-muted-foreground hover:text-primary transition-colors">91502 50227</a>
               </div>
               <div className="flex items-center gap-3">
                 <Clock size={18} className="text-secondary flex-shrink-0" />
@@ -428,7 +450,7 @@ function Footer() {
 /* ─── Page ─── */
 export default function Index() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <Header />
       <Hero />
       <About />
@@ -437,6 +459,25 @@ export default function Index() {
       <Reviews />
       <Contact />
       <Footer />
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919150250227"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-[60px] h-[60px] bg-[#25D366] text-white rounded-full shadow-lg hover:scale-105 hover:bg-[#20bd5a] transition-all duration-300"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.003-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+      </a>
     </div>
   );
 }
