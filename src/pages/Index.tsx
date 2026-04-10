@@ -13,7 +13,6 @@ import {
   ChevronRight,
   Heart,
   Send,
-  Flower,
 } from "lucide-react";
 import heroBridal from "@/assets/hero-bridal.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -242,11 +241,6 @@ function Gallery() {
                   <span className="p-4 text-primary-foreground font-serif text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
                     {img.label}
                   </span>
-                </div>
-
-                {/* Mobile Center Icon Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center sm:hidden text-white/90 drop-shadow-md pointer-events-none">
-                  <Flower size={32} strokeWidth={2} />
                 </div>
               </div>
 
